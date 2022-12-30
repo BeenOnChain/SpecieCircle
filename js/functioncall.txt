@@ -1,0 +1,79 @@
+<script>
+async function currentSupply() {
+  const accounts = await ethereum.request({ method: 'eth_accounts' });
+  const web3 = new Web3("https://cloudflare-eth.com")
+   var strSmall = 'smallSizes()';
+  var strMedium = 'mediumSizes()';
+  var strLarge = 'largeSizes()';
+  var strXLarge = 'xlargeSizes()';
+  var strXXLarge = 'xxlargeSizes()';
+  var smresult = web3.eth.abi.encodeFunctionSignature( strSmall );
+  var medresult = web3.eth.abi.encodeFunctionSignature( strMedium );
+  var lresult = web3.eth.abi.encodeFunctionSignature( strLarge );
+  var xlresult = web3.eth.abi.encodeFunctionSignature( strXLarge );
+  var xxlresult = web3.eth.abi.encodeFunctionSignature( strXXLarge );
+  
+  
+  
+  const smallSupply =  ethereum.request({
+    method: 'eth_call',
+    params: [{  
+               from: accounts[0],
+               to: '0xC71A11499864a3478aCE6a4DEDb5E93a4315067A', 
+               tag: 'latest', 
+               chainid: '0x3',
+               data: smresult }]
+  });
+
+  const medSupply =  ethereum.request({
+    method: 'eth_call',
+    params: [{  
+               from: accounts[0],
+               to: '0xC71A11499864a3478aCE6a4DEDb5E93a4315067A', 
+               tag: 'latest', 
+               chainid: '0x3',
+               data: medresult }]
+  });
+
+  const lSupply =  ethereum.request({
+    method: 'eth_call',
+    params: [{  
+               from: accounts[0],
+               to: '0xC71A11499864a3478aCE6a4DEDb5E93a4315067A', 
+               tag: 'latest', 
+               chainid: '0x3',
+               data: lresult }]
+  });
+
+  const xlSupply =  ethereum.request({
+    method: 'eth_call',
+    params: [{  
+               from: accounts[0],
+               to: '0xC71A11499864a3478aCE6a4DEDb5E93a4315067A', 
+               tag: 'latest', 
+               chainid: '0x3',
+               data: xlresult }]
+  });
+
+  const xxlSupply =  ethereum.request({
+    method: 'eth_call',
+    params: [{  
+               from: accounts[0],
+               to: '0xC71A11499864a3478aCE6a4DEDb5E93a4315067A', 
+               tag: 'latest', 
+               chainid: '0x3',
+               data: xxlresult }]
+  });
+
+
+
+
+
+  
+  document.getElementById("s1").value ='Small Sizes Supply: ' + parseInt(smallSupply, 16) ;
+  document.getElementById("s2").value ='Medium Sizes Supply: ' + parseInt(medSupply, 16) ;
+  document.getElementById("s3").value ='Large Sizes Supply: ' + parseInt(lSupply, 16) ;
+  document.getElementById("s4").value ='XLarge Sizes Supply: ' + parseInt(xlSupply, 16) ;
+  document.getElementById("s5").value ='XXLarge Sizes Supply: ' + parseInt(xxlSupply, 16) ;
+}
+</script>

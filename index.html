@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" class = "bg-black">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8" />
+        <title>SpecieCircle</title>
+        <link rel="icon" type="image/x-icon" href="pics/pic/speciejs.png" />
+        <meta name="description" content="Decentralized Merchant Maker." />
+        <meta name="author" content="SpecieCircle" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        
+
+        <!-- Ethereum Related -->
+        <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;600&display=swap" rel="stylesheet"/>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/nucleo-icons.css" rel="stylesheet" />
+  <link href="css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+
+
+
+    
+    </head>
+    
+    <body id="page-top">
+
+      <div class="modal fade animate__animated  animate__fadeInDown" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+          <div class="modal-content bg-greygrey text-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Shipping Information & In Stock Supply</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputEmail">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Name</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputName">
+                </div>
+      
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Address</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputAddress">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">City</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputCity">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label"> State</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputState">
+                </div>
+      
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Zip Code</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputZip">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Country</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="inputCountry">
+                </div>
+              <div class="input-group input-group-sm mb-3 bg-greygrey">
+        <div class="input-group-prepend bg-greygrey">
+          <span class="input-group-text bg-greygrey text-white" id="inputGroup-sizing-sm">Small Size Amount</span>
+        </div>
+        <input type="number" name="SmallMogul" value = '0'class="form-control bg-greygrey text-white " id="inputSMA" min="0" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      
+      <div class="input-group input-group-sm mb-3 bg-greygrey">
+        <div class="input-group-prepend bg-greygrey">
+          <span class="input-group-text bg-greygrey text-white " id="inputGroup-sizing-sm">Medium Size Amount</span>
+        </div>
+        <input type="number" name="mediumMogul" value = '0' class="form-control bg-greygrey text-white" id="inputMMA" min="0" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>    
+      
+      <div class="input-group input-group-sm mb-3 bg-greygrey">
+        <div class="input-group-prepend bg-greygrey">
+          <span class="input-group-text bg-greygrey text-white" id="inputGroup-sizing-sm">Large Size Amount</span>
+        </div>
+        <input type="number" name="largeMogul" value = '0' class="form-control bg-greygrey text-white" id="inputLMA" min="0" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      
+      <div class="input-group input-group-sm mb-3 bg-greygrey">
+        <div class="input-group-prepend bg-greygrey">
+          <span class="input-group-text bg-greygrey text-white" id="inputGroup-sizing-sm">xlarge Size Amount</span>
+        </div>
+        <input type="number" name="xlargeMogul" value = '0'class="form-control bg-greygrey text-white" id="inputXLMA" min="0" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3 bg-greygrey">
+        <div class="input-group-prepend bg-greygrey">
+          <span class="input-group-text bg-greygrey text-white" id="inputGroup-sizing-sm">xxlarge Size Amount</span>
+        </div>
+        <input type="number" name="xxlargeMogul" value = '0' class="form-control bg-greygrey text-white" id="inputXXLMA" min="0" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="form-group">
+                  <label for="message-text" class="col-form-label-lg">Currently In Stock</label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="s1" readOnly>
+                </div>
+      
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label"></label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="s2" readOnly>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label"></label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="s3" readOnly>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label"></label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="s4" readOnly>
+                </div>
+      
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label"></label>
+                  <input type="text" class="form-control bg-greygrey text-white " id="s5" readonly>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+            
+              <button type="submit" id = "submitMogul" name = "submitXMogul" value = "success" onclick = 'basketsent(); '  class="btn btn-grey text-white">Purchase</button>
+
+              <script>
+                async function PURCHASE_WINDOW_X() {
+                           
+                  $('#submitMogul').attr('data-target','#exampleModal');    
+                  $("#exampleModal").modal('hide');
+                  console.log('Hide me');
+            
+             
+           
+           } 
+              </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="errorwebModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+        <div class="modal-dialog modal-dialog-centered " style = "position: relative; right: 8px; ">
+          <div class="modal-content bg-greygrey text-white" >
+           
+            <div class="modal-body bg-greygrey text-white">
+             Error
+               
+      
+            </div>
+          
+          </div>
+        </div>
+      </div> 
+
+      <div class="modal fade" id="ZERO_ORDER_MODAL" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+        <div class="modal-dialog modal-dialog-centered " style = "position: relative; right: 8px; ">
+          <div class="modal-content bg-greygrey text-white" >
+           
+            <div class="modal-body bg-greygrey text-white">
+             You are trying to purchase nothing. Please put atleast the number 1 into one of the size "Amount" inputs.
+               
+      
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="successwebModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+        <div class="modal-dialog modal-dialog-centered " style = "position: relative; right: 8px; ">
+          <div class="modal-content bg-greygrey text-white" >
+           
+            <div class="modal-body bg-greygrey text-white">
+              You've successfully Purchased a Specie Circle item<br>
+              You're now apart of the Specie DAO<br>
+              Here's your transaction link: <br> <a id="suchash" class = "text-yellow" href="" >Receipt</a><br>
+               
+      
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        function OPEN_SUCCESS_HASH() {
+          window.open(document.getElementById('suchash').href, '_blank');
+        };
+      </script>
+      
+      <div class="modal fade" id="subwebModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+        <div class="modal-dialog modal-dialog-centered " style = "position: relative; right: 8px; ">
+          <div class="modal-content bg-greygrey text-white" >
+           
+            <div class="modal-body bg-greygrey text-white">
+              Transaction Submitted<br>
+              Another window will pop up when transaction is confirmed<br>
+              Here's your transaction link: <br> <a id="subhash" class = "text-yellow"  href="" >Confirmation</a><br>
+               
+      
+            </div>
+          <script>
+            function OPEN_SUB_HASH() {
+              window.open(document.getElementById('subhash').href, '_blank');
+            };
+          </script>
+          </div>
+        </div>
+      </div>
+                  
+       
+        <div class="modal fade" id="nowebModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+          <div class="modal-dialog modal-dialog-centered " style = "position: relative;  ">
+            <div class="modal-content bg-greygrey text-white" >
+             
+              <div class="modal-body bg-greygrey text-white">
+                You don't have a Web 3.0 wallet installed.<br>
+                Please Install A Web 3.0 Wallet<br>
+                Try Installing <a class = "text-yellow" href="https://metamask.io/">MetaMask.<img style = "  width: 30px; right: 10px;" src="pics/pic/meta.png"></a><br>
+                 
+        
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+        <div onload = "SPECIE_SUPPLY_X_CHAINLINK_ORACLE()" class="modal fade" id="Modalchart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+          <div class="modal-dialog modal-dialog-centered " style = "position: relative;  ">
+            <div class="modal-content bg-greygrey text-white" >
+             
+              <canvas  id="myChart" width="300" height="300"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+              <script type="text/javascript" src="js/ABI_SPECIE.1.js"></script>
+
+              <script>
+                async function SPECIE_SUPPLY_X_CHAINLINK_ORACLE()
+                {  
+                     
+                     
+                      const accounts = await ethereum.request({ method: 'eth_accounts' });
+                      const chainIDs = await ethereum.request({method: 'eth_chainId'});
+              
+                      const web3 = new Web3(new Web3.providers.HttpProvider("https://goerli.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
+                     const w3 = new Web3(new Web3.providers.HttpProvider("https://cloudflare-eth.com"))
+                      var oracle = new w3.eth.Contract(CHAINLINK_ORACLE_ABI, chainlink);
+              
+                       oracle.methods.latestRound().call({from: accounts[0]}, function(error, res) {
+                                                if (error != null) {
+                                                                      console.log(error)
+                                                                      return;
+                                              } else {
+                                                  console.log(res)
+                                                  return res ;
+                                                      }
+                                                      
+                                                    });
+                      
+              
+                      oracle.methods.latestAnswer().call({from: accounts[0]}, function(error, res) {
+                        if (error != null) {
+                                              console.log(error)
+                                              return;
+                      } else {
+                          var data = res;
+                          console.log("Latest price was:" ,res)}
+                          console.log(parseInt(data));
+var pricex = (parseInt(data) / 100000000) * 121  ;
+var price = parseInt(pricex)  + (parseInt(pricex) * ((100 - parseInt(totalsupply)) / 100));
+document.getElementById("mogsub").value = "$" + price.toFixed(2);
+                      })
+                              };
+
+                      
+                 async function SPECIE_SUPPLY_CHART() { 
+                  
+                  const accounts = await ethereum.request({ method: 'eth_accounts' });
+                  const chainIDs = await ethereum.request({method: 'eth_chainId'});
+          
+                              const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mainnet.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
+                              var inventory = new web3.eth.Contract(inventoryabi, addressInv);
+                              
+                              var smallsizes = await inventory.methods.smallSizes().call({from: accounts[0]});
+                              var medsizes = await inventory.methods.mediumSizes().call({from: accounts[0]});
+                              var lsizes = await inventory.methods.largeSizes().call({from: accounts[0]});
+                              var xlsizes = await inventory.methods.xlargeSizes().call({from: accounts[0]});
+                              var xxlsizes = await inventory.methods.xxlargeSizes().call({from: accounts[0]});
+                              var totalsupply = (parseInt(smallsizes) + parseInt(medsizes) + parseInt(lsizes) + parseInt(xlsizes) + parseInt(xxlsizes));
+                              
+                
+              const ctx = document.getElementById('myChart').getContext('2d');
+              const myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: ['S', 'M', 'L', 'XL', 'XXL'],
+                      datasets: [{
+                          label: 'Supply Amounts',
+                          data: [parseInt(smallsizes), parseInt(medsizes), parseInt(lsizes), parseInt(xlsizes), parseInt(xxlsizes)],
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(255, 159, 64, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgba(255, 99, 132, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                    legend: {
+                      labels: {
+                          // This more specific font property overrides the global property
+                          fontColor: 'white'
+                      }
+                  },
+                      scales: {
+                          y: {
+                              beginAtZero: true
+                          }
+                      }
+                  }
+              });
+
+            }
+
+            SPECIE_SUPPLY_CHART();
+              </script>
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="connectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style = "border-radius: 10px;">
+          <div class="modal-dialog modal-dialog-centered " >
+            <div class="modal-content bg-greygrey text-white" >
+             
+              <div class="modal-body bg-greygrey text-white">
+               Connect Your Wallet!
+        
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+      
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transparent text-white animate__animated animate__fadeInDown">
+    
+    <button class="btn blur blur-rounded btn-greygrey animate__animated " style = " position: relative;padding: 0px 0px; left: 0px  " onclick = "SHIP_DATA();"><img src="pics/pic/shipping.png" width = "60px" style = "position: relative; border-radius: 0%; top: 0px; left:13px " onclick = "SHIP_DATA();">
+      <script>
+        async function SHIP_DATA() {
+
+
+                  
+
+          if (window.ethereum !== undefined) {
+                
+            $("#Modalchart").modal('show');
+
+
+               
+          } else {
+            
+             
+
+            $("#connectModal").modal('show');
+           
+  
+               }
+          
+        
+        } 
+                          </script>
+
+     
+
+    <a class="navbar-brand  text-white"  onclick = "connectx(); check(); ethereum.on('connect', () => window.location.reload());"> 
+      
+    
+      
+      <button id = "buttoneth" value = "Connect"  class="btn blur blur-rounded btn-grey" style = "font-size: 0px; padding: 0px 0px; "
+      onclick = "connectx(); check(); ethereum.on('connect', () => window.location.reload()); ">
+      <style>
+        .btn-greygrey {
+background-color: #222222  !important;
+}
+          .btn-uniblue {
+            background-color: rgba(76, 130, 251, 0.24) !important;
+          }
+
+          .btn-outline-retro {
+            color: #ffffff00;
+            border-color: #ffffff;
+          }
+
+      </style>
+       <script>
+           async function check() {
+        // Then get the currently selected radio button's value
+        
+        console.log(window.ethereum)
+  
+        if (window.ethereum !== undefined) {
+    // From now on, this should always be true:
+    // provider === window.ethereum
+            console.log(window.ethereum); // initialize your app
+            
+                                          } else {
+  
+            
+             $("#nowebModal").modal('show');
+    
+                                          }
+  
+        // Check the value to make sure you want to show the modal
+       
+      }
+         async function changex()
+{  
+  const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+const chainIDs = await ethereum.request({method: 'eth_chainId'});
+if (chainIDs !== "0x89") {
+  document.getElementById("connecteth").style.fontSize = "x-small";
+
+  document.getElementById("connecteth").innerHTML = "Polygon Only";
+ switchChain("Polygon") ;
+ ethereum.on('chainChanged', (_chainId) => window.location.reload());
+
+} else {
+
+  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,6) + "...";
+  document.getElementById("Avatar").src = "pics/pic/greenensimage.png";
+
+}
+
+}
+
+async function switchChain(chains) {
+  
+  const Polygon = [{ chainId: '0x89'}]; 
+  const PolygonID = '0x89' ; 
+
+
+  var chainsx = { "Polygon" : Polygon};
+var chainx = { "Polygon" : PolygonID};
+
+var RPCchain = {'Polygon' : 'https://polygon-rpc.com'}
+var symChain = {'Polygon' : 'MATIC'}
+var expchain = {'Polygon' : 'https://polygonscan.io/'}
+
+
+await ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: chainsx[chains]
+    }).catch(async (switchError) => {
+                              // This error code indicates that the chain has not been added to MetaMask.
+if (switchError.code === 4902) {
+            await ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [
+                                { 
+                                  chainId: chainx[chains], 
+                                  chainName: chains, 
+                                  nativeCurrency: {
+                                                        name: chains,
+                                                        symbol: symChain[chains],
+                                                        decimals: 18
+                                }, 
+                                  rpcUrls: [RPCchain[chains]], 
+                                  blockExplorerUrls: [expchain[chains]]
+                }
+                
+                ]
+              });
+}
+// handle other "switch" errors
+})
+
+ethereum.on('chainChanged', (_chainId) => window.location.reload());
+
+
+
+
+
+
+
+};
+async function connectx() {
+
+  ethereum
+  .request({ method: 'eth_requestAccounts' })
+  .then(changex)
+  .catch((err) => {
+    if (err.code === 4001) {
+      // EIP-1193 userRejectedRequest error
+      // If this happens, the user rejected the connection request.
+      console.log('Please connect to MetaMask.');
+      document.getElementById("connecteth").innerHTML = "Rejected";
+
+      
+    } else {
+      console.error(err);
+    }
+  }).then((result) => { window.location.reload()});
+
+
+
+};
+
+
+
+
+
+
+       </script> 
+       
+       <img onload = "changex();" src="pics/pic/goldensimage.png" id="Avatar" width = "50px" style = "position: relative; border-radius: 50%; top: 2px; left: 5px; ">
+       <a id = "connecteth"  class=" btn blur blur-rounded btn-greygrey text-white " style = "font-size: 15px;padding: 15px 15px;  right: 8px; top:-5px;  position: relative"> Connect
+      </a>
+
+    <style>
+  .bg-darkgrey {
+  background-color: #333333  !important;
+}
+
+.btn-lightgrey {
+  background-color: #333333 !important;
+
+}
+    </style>
+      
+    
+  
+  </nav>  
+   <script type="text/javascript">
+          async function changext()
+  {  
+       
+       
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+        const chainIDs = await ethereum.request({method: 'eth_chainId'});
+
+        const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mainnet.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
+        var inventory = new web3.eth.Contract(inventoryabi, addressInv);
+        
+        var smallsizes = await inventory.methods.smallSizes().call({from: accounts[0]});
+        var medsizes = await inventory.methods.mediumSizes().call({from: accounts[0]});
+        var lsizes = await inventory.methods.largeSizes().call({from: accounts[0]});
+        var xlsizes = await inventory.methods.xlargeSizes().call({from: accounts[0]});
+        var xxlsizes = await inventory.methods.xxlargeSizes().call({from: accounts[0]});
+        var totalsupply = (parseInt(smallsizes) + parseInt(medsizes) + parseInt(lsizes) + parseInt(xlsizes) + parseInt(xxlsizes));
+        const w3 = new Web3(new Web3.providers.HttpProvider("https://cloudflare-eth.com"))
+        var oracle = new w3.eth.Contract(CHAINLINK_ORACLE_ABI, chainlink);
+
+        var latestRound = await oracle.methods.latestRound().call({from: accounts[0]}, function(error, res) {
+          if (error != null) {
+                                console.log(error)
+                                return;
+        } else {
+            console.log(res);
+            return res ;
+                }
+                
+              });
+
+              await oracle.methods.getRoundData(latestRound).call({from: accounts[0]}, function(error, res) {
+                if (error != null) {
+                                      console.log(error)
+                                      return;
+              } else {
+                  console.log(res['answer'])
+                  return res ;
+                      }
+                      
+                    });
+      
+        
+
+        oracle.methods.latestAnswer().call({from: accounts[0]}, function(error, res) {
+                                  if (error != null) {
+                                                        console.log(error)
+                                                        return;
+                                } else {
+                                    var data = res;
+                                    var pricex = (parseInt(data) / 100000000) * 121  ;
+                                    var price = parseInt(pricex)  + (parseInt(pricex) * ((100 - parseInt(totalsupply)) / 100));
+                                    var ETH_PRICE = (121 + (121 * ((100 - parseInt(totalsupply)) / 100)))
+                                    console.log("Latest price was:" , price)}
+                                    console.log(parseInt(data));
+                                    document.getElementById("PurchaseETH").value = ETH_PRICE.toFixed(2);
+                                    document.getElementById("mogsub").value = "$" + price.toFixed(2);
+                                    console.log("Latest MATIC price: " + ETH_PRICE.toFixed(2)  + " MATIC");
+
+if (chainIDs !== "0x89") {
+  document.getElementById("connecteth").style.fontSize = "x-small";
+
+  document.getElementById("connecteth").innerHTML = "Polygon Only";
+  ethereum.on('chainChanged', (_chainId) => window.location.reload());
+
+} else {
+  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,12) + "...";
+  document.getElementById("Avatar").src = "pics/pic/greenensimage.png"
+
+}
+                                        });
+        
+        
+    
+  }
+
+
+  
+
+    
+
+
+  
+</script>
+        
+ 
+
+        <!-- Masthead-->
+        <header class="masthead ">
+
+          
+
+            <div class="container d-flex h-100 align-items-center  animate__animated animate__fadeInDown">
+                  <div class="mx-auto text-center">
+                   
+            
+                    <img  onload = "changex();changext();" class="img-fluid "  src="pics/pic/SPECIEMOGULHOODIE.png" width = "350" height = "350" alt="" >
+                  
+                        
+                    <button id = "ineedit" class="btn blur blur-rounded btn-grey mogul-btn" style= "font-size: 1px; padding: 5px 20px; right: 5px;  " data-toggle="modal" data-target="" data-whatever="@mdo"
+                        onclick = "blackout(); blackout();">
+                        <script>
+                          async function blackout() {
+                           
+
+        if (window.ethereum !== undefined) {
+             contractCall();
+             $('#ineedit').attr('data-target','#exampleModal');    
+             $("#exampleModal").modal('show');
+        } else {
+          
+           
+             console.log(window.ethereum)
+          $("#connectModal").modal('show');
+         
+
+             }
+        
+      
+      } 
+
+      async function PURCHASE_WINDOW_X() {
+                           
+             $('#SUBMITmOGUL').attr('data-target','#exampleModal');    
+             $("#exampleModal").modal('hide');
+       
+        
+      
+      } 
+
+    </script>
+                        <style>
+                          .btn-greygrey {
+                  background-color: #222222  !important;
+                  }
+                  .btn-darkgrey {
+                  background-color: #464545  !important;
+                  }
+                        </style>
+                     <input type = "button" class="btn text-white blur blur-rounded btn-grey" id = "PurchaseETH" style = "font-size: 11px; right: 20px; top: 0px; position: relative" onclick = "blackout(); " value = ""><img src="pics/pic/polygon.png" width = "12px" style = "position: relative; border-radius: 0%; top: -2px; right:48px " > 
+                    </a>
+                    <input type ="button" class="btn text-white blur blur-rounded btn-greygrey" id = 'mogsub' style = "font-size: 15px; left: 10px; top: 0px; position: relative" onclick = "blackout();" value ="Connect">
+                  </input>
+                     
+                  
+                    <style>
+                      .btn-greygrey {
+          background-color: #222222  !important;
+        }
+                    </style>
+
+
+ <script>
+ async function contractCall () {
+            
+            const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mainnet.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
+            
+            const accounts = await ethereum.request({ method: 'eth_accounts' });
+            var inventory = new web3.eth.Contract(inventoryabi, addressInv)
+            
+            var smallsizes = await inventory.methods.smallSizes().call({from: accounts[0]});
+            var medsizes = await inventory.methods.mediumSizes().call({from: accounts[0]});
+            var lsizes = await inventory.methods.largeSizes().call({from: accounts[0]});
+            var xlsizes = await inventory.methods.xlargeSizes().call({from: accounts[0]});
+            var xxlsizes = await inventory.methods.xxlargeSizes().call({from: accounts[0]});
+
+            document.getElementById("s1").value ='Small Sizes Supply: ' + smallsizes;
+            document.getElementById("s2").value ='Medium Sizes Supply: ' + medsizes;
+            document.getElementById("s3").value ='Large Sizes Supply: ' + lsizes;
+            document.getElementById("s4").value ='XLarge Sizes Supply: ' + xlsizes;
+            document.getElementById("s5").value ='XXLarge Sizes Supply: ' + xxlsizes;
+
+        }
+ 
+async function currentSupply() {
+  
+  
+  const web3 = new Web3("https://cloudflare-eth.com")
+  
+  
+}
+
+
+
+</script>                   
+
+
+
+
+
+                </div>
+            </div>
+            
+        </header>
+
+
+        
+        <!-- About-->
+        
+
+        <!-- Footer-->
+
+      
+  
+        <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+        <!-- Bootstrap core JS-->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/utf8/3.0.0/utf8.js" integrity="sha512-TpkRcfygox9TaC40D5Nu9CQElI7PaQ9d+/RrhWccgvktjgh/HITPo+VZ+xQc98DZbiR3Ct/z9BHXAp/m88j/kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/utf8/3.0.0/utf8.min.js" integrity="sha512-Up/VFqLmUsS5GMd4XTuxE6NsCsBJlPv12A9apHDqRx8v/x+++Qmmg2M1kTs8cQztxHk0d/rgAqmVOjzEKBZH7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/metaAcct.js"></script>
+        <script type="text/javascript" src="js/ABI_SPECIE.2.js"></script>
+        <script type="text/javascript" src="js/customerInfo.js"></script>
+        
+        
+    </body>
+</html>
+
