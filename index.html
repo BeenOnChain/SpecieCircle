@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class = "bg-black">
+<html lang="en" class = "bg-black" style = "overflow:hidden">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta charset="utf-8" />
@@ -32,6 +32,8 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="css/nucleo-svg.css" rel="stylesheet" />
+  <link href="css/bootstrap.css" rel="stylesheet" />
+
   <!-- CSS Files -->
 
 
@@ -39,7 +41,7 @@
     
     </head>
     
-    <body id="page-top">
+    <body id="page-top" class = "bg-new-drop" style="overflow:hidden">
 
       <div class="modal fade animate__animated  animate__fadeInDown" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
@@ -251,7 +253,7 @@
              
               <canvas  id="myChart" width="300" height="300"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-              <script type="text/javascript" src="js/ABI_SPECIE.1.js"></script>
+              
 
               <script>
                 async function SPECIE_SUPPLY_X_CHAINLINK_ORACLE()
@@ -404,12 +406,38 @@ document.getElementById("mogsub").value = "$" + price.toFixed(2);
 
      
 
-    <a class="navbar-brand  text-white"  onclick = "connectx(); check(); ethereum.on('connect', () => window.location.reload());"> 
+    <a class="navbar-brand  text-white"  > 
       
     
-      
-      <button id = "buttoneth" value = "Connect"  class="btn blur blur-rounded btn-grey" style = "font-size: 0px; padding: 0px 0px; "
-      onclick = "connectx(); check(); ethereum.on('connect', () => window.location.reload()); ">
+      <div class="dropdown">
+      <button id = "buttoneth" value = "Connect"  class="btn blur blur-rounded btn-grey btn-secondary dropdown-toggle" style = "font-size: 0px; padding: 2px 20px; "
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+      <span class="position-absolute top-100 start-77 translate-middle badge rounded-pill bg-danger text-faded animate__animated animate__fadeInRightBig">
+        
+        NEW DROP
+        </span>
+        <div class="dropdown-menu animate__animated animate__fadeInDown " style = "position: center;   border-radius: 40px;
+        " aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item text-white" href="#">  
+            <span class="badge rounded-pill  bg-new-info" style = "font-size: 30px; z-index: 5000 !important; top:-10px" onclick ="changeImage()">NFT</span>
+          <script>
+
+function changeImage() {
+  var image1 = document.getElementById("SELLER_PLACE");
+  var mh = document.getElementById("mastxhead");
+  var it = document.getElementById("ineedit")
+  image1.src = "https://ipfs.io/ipfs/QmZkYcQeimLyn7tSM6kGumxKgKvoZ6iS9LDarGoLCLUuKa?filename=Specie-new-23.gif";
+  image1.style.borderRadius = "50px";
+  image1.style.top = "0px"
+  it.style.top = "-350px"
+  mh.style.backgroundImage = "url(https://ipfs.io/ipfs/QmZkYcQeimLyn7tSM6kGumxKgKvoZ6iS9LDarGoLCLUuKa?filename=Specie-new-23.gif)";
+  
+}
+          </script>
+          </a>
+          </div>
+        </span>
+      </div>
       <style>
         .btn-greygrey {
 background-color: #222222  !important;
@@ -445,24 +473,36 @@ background-color: #222222  !important;
         // Check the value to make sure you want to show the modal
        
       }
+
+
+
+      
          async function changex()
 {  
   const accounts = await ethereum.request({ method: 'eth_accounts' });
 
 const chainIDs = await ethereum.request({method: 'eth_chainId'});
+var CH = document.getElementById("CR_CHNG");
+var RNG = document.getElementById("RNG_CHNG");
+
 if (chainIDs !== "0x89") {
   document.getElementById("connecteth").style.fontSize = "x-small";
 
   document.getElementById("connecteth").innerHTML = "Polygon Only";
- switchChain("Polygon") ;
- ethereum.on('chainChanged', (_chainId) => window.location.reload());
+  ethereum.on('chainChanged', (_chainId) => window.location.reload());
+  CH.style.backgroundColor = "yellow";
+  RNG.style.border = "yellow";
+
+
 
 } else {
-
-  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,6) + "...";
-  document.getElementById("Avatar").src = "pics/pic/greenensimage.png";
-
+  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,2) + "..." + accounts[0].substring(38,42) ;
+  CH.style.backgroundColor = "green";
+  RNG.style.border = "green";
 }
+
+
+
 
 }
 
@@ -545,8 +585,79 @@ async function connectx() {
 
        </script> 
        
-       <img onload = "changex();" src="pics/pic/goldensimage.png" id="Avatar" width = "50px" style = "position: relative; border-radius: 50%; top: 2px; left: 5px; ">
-       <a id = "connecteth"  class=" btn blur blur-rounded btn-greygrey text-white " style = "font-size: 15px;padding: 15px 15px;  right: 8px; top:-5px;  position: relative"> Connect
+       
+       <div  class="ring-container" onload = "BG_CLR()" style = "left: 135px; position: relative; top: -10px ">
+        <div id = "CR_CHNG"  class="circle" style="border: 3px solid red;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        left: 6px;
+        top: 17px;
+        -webkit-animation: pulsate 1s ease-out;
+        -webkit-animation-iteration-count: infinite; 
+        animation: pulsate 1s ease-out;
+        animation-iteration-count: infinite; 
+        opacity: 0.0"></div>
+    </div>
+
+    <script>
+   function adjustCssSelector() {
+  if (window.innerWidth <= 768) { // check if screen width is 768 pixels or less
+    // if the screen width is mobile-sized, change the CSS selector to a new value
+    document.querySelector(".circle").style.top = "16.4px";
+    document.querySelector(".circle").style.left = "7.5px";
+
+    document.querySelector(".ringring").style.top = "17px";
+   
+    document.querySelector(".ringring").style.left = "7px";
+  } else {
+    
+  }
+}
+
+// call the function on window load and on window resize
+window.addEventListener("load", adjustCssSelector);
+window.addEventListener("resize", adjustCssSelector);
+
+
+    </script>
+    <style>.ring-container {
+      position: relative;
+  }
+  
+  .circle {
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 23.4px;
+      left: 13.5px;
+  }
+  
+  .ringring {
+      border: 3px solid red;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      left: 16px;
+      top: 15px;
+      -webkit-animation: pulsate 1s ease-out;
+      -webkit-animation-iteration-count: infinite; 
+      animation: pulsate 1s ease-out;
+      animation-iteration-count: infinite; 
+      opacity: 0.0
+  }
+  @-webkit-keyframes pulsate {
+      0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+      50% {opacity: 1.0;}
+      100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  }</style>
+       <a id = "connecteth"  class=" btn blur blur-rounded btn-greygrey text-white " style = "font-size: 15px;padding: 15px 15px;  right: 8px; top:-5px;  position: relative" onclick = "connectx(); changex(); check(); ethereum.on('connect', () => window.location.reload());"> Connect
       </a>
 
     <style>
@@ -557,6 +668,19 @@ async function connectx() {
 .btn-lightgrey {
   background-color: #333333 !important;
 
+}
+
+@media (max-width: 1583) {
+  .circle {
+
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 26.4px !important;
+      left: 12.5px !important;
+  }
 }
     </style>
       
@@ -622,16 +746,24 @@ async function connectx() {
                                     document.getElementById("mogsub").value = "$" + price.toFixed(2);
                                     console.log("Latest MATIC price: " + ETH_PRICE.toFixed(2)  + " MATIC");
 
+var CH = document.getElementById("CR_CHNG");
+var RNG = document.getElementById("RNG_CHNG");
+
+
 if (chainIDs !== "0x89") {
   document.getElementById("connecteth").style.fontSize = "x-small";
 
   document.getElementById("connecteth").innerHTML = "Polygon Only";
   ethereum.on('chainChanged', (_chainId) => window.location.reload());
+  CH.style.backgroundColor = "yellow";
+  RNG.style.backgroundColor = "yellow";
+
+
 
 } else {
-  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,12) + "...";
-  document.getElementById("Avatar").src = "pics/pic/greenensimage.png"
-
+  document.getElementById("connecteth").innerHTML = accounts[0].substring(0,2) + "..." + accounts[0].substring(38,42) ;
+  CH.style.backgroundColor = "green";
+  RNG.style.border = "green";
 }
                                         });
         
@@ -650,99 +782,94 @@ if (chainIDs !== "0x89") {
         
  
 
-        <!-- Masthead-->
-        <header class="masthead ">
+<div class="container d-flex h-100 align-items-center  animate__animated animate__fadeInDown" style="z-index:5">
+  <div class="mx-auto text-center" >
+   
 
-          
-
-            <div class="container d-flex h-100 align-items-center  animate__animated animate__fadeInDown">
-                  <div class="mx-auto text-center">
-                   
-            
-                    <img  onload = "changex();changext();" class="img-fluid "  src="pics/pic/SPECIEMOGULHOODIE.png" width = "350" height = "350" alt="" >
-                  
-                        
-                    <button id = "ineedit" class="btn blur blur-rounded btn-grey mogul-btn" style= "font-size: 1px; padding: 5px 20px; right: 5px;  " data-toggle="modal" data-target="" data-whatever="@mdo"
-                        onclick = "blackout(); blackout();">
-                        <script>
-                          async function blackout() {
-                           
-
-        if (window.ethereum !== undefined) {
-             contractCall();
-             $('#ineedit').attr('data-target','#exampleModal');    
-             $("#exampleModal").modal('show');
-        } else {
-          
+    <img  id = "SELLER_PLACE" onload = "changex();changext();" class="img-fluid "  src="pics/pic/SPECIEMOGULHOODIE.png" width = "350" height = "350" alt="" >
+  
+        
+    <button id = "ineedit" class="btn blur blur-rounded btn-grey mogul-btn" style= "font-size: 1px; padding: 5px 20px; right: 5px;  " data-toggle="modal" data-target="" data-whatever="@mdo"
+        onclick = "blackout(); blackout();">
+        <script>
+          async function blackout() {
            
-             console.log(window.ethereum)
-          $("#connectModal").modal('show');
-         
 
-             }
-        
-      
-      } 
-
-      async function PURCHASE_WINDOW_X() {
-                           
-             $('#SUBMITmOGUL').attr('data-target','#exampleModal');    
-             $("#exampleModal").modal('hide');
-       
-        
-      
-      } 
-
-    </script>
-                        <style>
-                          .btn-greygrey {
-                  background-color: #222222  !important;
-                  }
-                  .btn-darkgrey {
-                  background-color: #464545  !important;
-                  }
-                        </style>
-                     <input type = "button" class="btn text-white blur blur-rounded btn-grey" id = "PurchaseETH" style = "font-size: 11px; right: 20px; top: 0px; position: relative" onclick = "blackout(); " value = ""><img src="pics/pic/polygon.png" width = "12px" style = "position: relative; border-radius: 0%; top: -2px; right:48px " > 
-                    </a>
-                    <input type ="button" class="btn text-white blur blur-rounded btn-greygrey" id = 'mogsub' style = "font-size: 15px; left: 10px; top: 0px; position: relative" onclick = "blackout();" value ="Connect">
-                  </input>
-                     
-                  
-                    <style>
-                      .btn-greygrey {
-          background-color: #222222  !important;
-        }
-                    </style>
+if (window.ethereum !== undefined) {
+contractCall();
+$('#ineedit').attr('data-target','#exampleModal');    
+$("#exampleModal").modal('show');
+} else {
 
 
- <script>
- async function contractCall () {
-            
-            const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mainnet.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
-            
-            const accounts = await ethereum.request({ method: 'eth_accounts' });
-            var inventory = new web3.eth.Contract(inventoryabi, addressInv)
-            
-            var smallsizes = await inventory.methods.smallSizes().call({from: accounts[0]});
-            var medsizes = await inventory.methods.mediumSizes().call({from: accounts[0]});
-            var lsizes = await inventory.methods.largeSizes().call({from: accounts[0]});
-            var xlsizes = await inventory.methods.xlargeSizes().call({from: accounts[0]});
-            var xxlsizes = await inventory.methods.xxlargeSizes().call({from: accounts[0]});
+console.log(window.ethereum)
+$("#connectModal").modal('show');
 
-            document.getElementById("s1").value ='Small Sizes Supply: ' + smallsizes;
-            document.getElementById("s2").value ='Medium Sizes Supply: ' + medsizes;
-            document.getElementById("s3").value ='Large Sizes Supply: ' + lsizes;
-            document.getElementById("s4").value ='XLarge Sizes Supply: ' + xlsizes;
-            document.getElementById("s5").value ='XXLarge Sizes Supply: ' + xxlsizes;
 
-        }
- 
+}
+
+
+} 
+
+async function PURCHASE_WINDOW_X() {
+           
+$('#SUBMITmOGUL').attr('data-target','#exampleModal');    
+$("#exampleModal").modal('hide');
+
+
+
+} 
+
+</script>
+        <style>
+          .btn-greygrey {
+  background-color: #222222  !important;
+  }
+  .btn-darkgrey {
+  background-color: #464545  !important;
+  }
+        </style>
+     <input type = "button" class="btn text-white blur blur-rounded btn-grey" id = "PurchaseETH" style = "font-size: 11px; right: 20px; top: 0px; position: relative" onclick = "blackout(); " value = ""><img src="pics/pic/polygon.png" width = "12px" style = "position: relative; border-radius: 0%; top: -2px; right:48px " > 
+    </a>
+    <input type ="button" class="btn text-white blur blur-rounded btn-greygrey" id = 'mogsub' style = "font-size: 15px; left: 10px; top: 0px; position: relative" onclick = "blackout();" value ="Connect">
+  </input>
+     
+  
+    <style>
+      .btn-greygrey {
+background-color: #222222  !important;
+}
+    </style>
+
+
+<script>
+async function contractCall () {
+
+const web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-mainnet.infura.io/v3/3ac1c65d7658459ebafe15361c77dbac"))
+
+const accounts = await ethereum.request({ method: 'eth_accounts' });
+var inventory = new web3.eth.Contract(inventoryabi, addressInv)
+
+var smallsizes = await inventory.methods.smallSizes().call({from: accounts[0]});
+var medsizes = await inventory.methods.mediumSizes().call({from: accounts[0]});
+var lsizes = await inventory.methods.largeSizes().call({from: accounts[0]});
+var xlsizes = await inventory.methods.xlargeSizes().call({from: accounts[0]});
+var xxlsizes = await inventory.methods.xxlargeSizes().call({from: accounts[0]});
+
+document.getElementById("s1").value ='Small Sizes Supply: ' + smallsizes;
+document.getElementById("s2").value ='Medium Sizes Supply: ' + medsizes;
+document.getElementById("s3").value ='Large Sizes Supply: ' + lsizes;
+document.getElementById("s4").value ='XLarge Sizes Supply: ' + xlsizes;
+document.getElementById("s5").value ='XXLarge Sizes Supply: ' + xxlsizes;
+
+}
+
 async function currentSupply() {
-  
-  
-  const web3 = new Web3("https://cloudflare-eth.com")
-  
-  
+
+
+const web3 = new Web3("https://cloudflare-eth.com")
+
+
 }
 
 
@@ -753,9 +880,14 @@ async function currentSupply() {
 
 
 
-                </div>
-            </div>
-            
+</div>
+</div>
+
+
+        <!-- Masthead-->
+        <header id = "mastxhead" class="masthead " style = "z-index: -1; top: -550px;overflow: hidden;">
+
+          
         </header>
 
 

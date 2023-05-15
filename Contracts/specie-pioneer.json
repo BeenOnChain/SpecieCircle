@@ -1,0 +1,8 @@
+{
+    "name": "Dave and Busters Power Card",
+    "description": "This is a Pioneer's Pass for the SpecieCircle Creative Economy",
+    "image": "ipfs://QmZkYcQeimLyn7tSM6kGumxKgKvoZ6iS9LDarGoLCLUuKa",
+    "external_link": "https://Speciecircle.web.app",
+    "seller_fee_basis_points": 1000, 
+    "fee_recipient": "0x32672af4edc13cf1ab5dab6c5cda5df71ad35951" 
+  }

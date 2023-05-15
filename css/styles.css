@@ -485,7 +485,7 @@ mark,
   max-width: 100%;
   height: auto;
   position: relative; 
-  top :-70px;
+  top: 73px;
 }
 
 @media (max-width: 500px) {
@@ -509,6 +509,14 @@ mark,
     padding: 5px 40px; 
     position: relative; 
     top :-220px; 
+  }
+}
+
+@media (min-width: 1583) {
+  .circle {
+    top: 25.4px;
+    left: 12.5px;
+
   }
 }
 
@@ -579,6 +587,7 @@ pre code {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
+  background: transparent
 }
 @media (max-width: 500px) {
   .container {
@@ -3183,10 +3192,8 @@ input[type=button].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
   z-index: 1000;
   display: none;
-  float: left;
   min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
@@ -3194,10 +3201,13 @@ input[type=button].btn-block {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #00000071 !important; 
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.068);
   border-radius: 0.25rem;
+  box-shadow: inset 0px 0px 2px #fefefed1;
+  -webkit-backdrop-filter: saturate(200%) blur(100px);
+  backdrop-filter: saturate(200%) blur(00px);
 }
 
 .dropdown-menu-left {
@@ -3357,7 +3367,8 @@ input[type=button].btn-block {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #3f3f3f;
+  ;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
@@ -6336,8 +6347,8 @@ button.bg-success:focus {
   background-color: #1e7e34 !important;
 }
 
-.bg-info {
-  background-color: #fffb11 !important;
+.bg-new-info {
+  border: 1px solid #35dca6 !important;
 }
 
 a.bg-info:hover, a.bg-info:focus,
@@ -6410,7 +6421,17 @@ button.bg-black:focus {
 }
 
 .bg-transparent {
+  
   background-color: transparent !important;
+}
+
+.bg-shady {
+  box-shadow: inset 0px 0px 2px #fefefed1;
+  -webkit-backdrop-filter: saturate(200%) blur(100px);
+  backdrop-filter: saturate(200%) blur(100px);
+  
+  background-color: transparent !important;
+  z-index:-1; 
 }
 
 .border {
@@ -8168,11 +8189,43 @@ button.bg-black:focus {
   margin-left: auto !important;
 }
 
+@media only screen and (max-width: 768px) {
+  .mx-auto {
+
+  position: relative; 
+  top: 330px
+  }
+}
+
+/* Media query for desktop devices */
+@media only screen and (min-width: 769px) {
+  .mx-auto {
+
+  position: relative;
+  top: 100px
+  }
+}
+
+@media only screen and (min-width: 500px) {
+
+.mx-auto {
+
+  position: relative;
+  top: 25px
+  }
+
+  #ineedit {
+    position: relative;
+    top: 79px !important;
+  }
+
+}
+
 @media (min-width: 576px) {
   .m-sm-0 {
     margin: 0 !important;
   }
-
+  
   .mt-sm-0,
 .my-sm-0 {
     margin-top: 0 !important;
@@ -10037,6 +10090,10 @@ button.bg-black:focus {
   color: #fff !important;
 }
 
+.text-faded {
+  color: rgba(0, 0, 0, 0.50) !important;
+}
+
 .text-primary {
   color: #64a19d !important;
 }
@@ -10339,23 +10396,42 @@ body {
   border: 0;
 }
 
-.masthead {
-  position: relative;
-  width: auto;
-  height: auto;
-  min-height: 35rem;
-  padding: 22rem 0;
-  background: linear-gradient(to bottom, white 15%, rgb(41, 137, 157) 100%, rgb(41, 137, 157) 100%);
+.bg-new-drop {
+
   box-shadow: inset 0px 0px 2px #fefefed1;
-  -webkit-backdrop-filter: saturate(200%) blur(30px);
-  backdrop-filter: saturate(200%) blur(30px);
-  background-position: center;
+  -webkit-backdrop-filter: saturate(200%) blur(100px);
+  backdrop-filter: saturate(200%) blur(100px);
+  background-size: 1000px;
+  background-position: center top !important;
   background-repeat: no-repeat;
   background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  z-index: -1;
+  overflow:hidden;
+}
+
+.masthead {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 25rem;
+  padding: 50rem 0;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-image: url("../pics/pic/SPECIEMOGULHOODIE.png");
+  box-shadow: inset 0px 0px 2px #fefefed1;
+  -webkit-backdrop-filter: saturate(200%) blur(30px);
+  backdrop-filter: saturate(200%) blur(30px);
+  background-size: 135px;
+  /* background-attachment: scroll; */
+  /* -webkit-background-size: cover; */
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* background-size: cover; */
+  /* background-size: cover; */
 }
 .masthead h1 {
   font-family: 'HansonBold', monospace;  font-size: 2.5rem;
@@ -10378,7 +10454,7 @@ body {
 }
 @media (min-width: 992px) {
   .masthead {
-    height: 100vh;
+    height: 1000vh;
     padding: 0;
   }
   .masthead h1 {
